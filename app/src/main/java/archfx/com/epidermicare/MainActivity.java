@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClickReport(View view)
     {
         if(view.getId()==R.id.ReportButton) {
-            Intent a = new Intent(this, ProfileActivity.class);
+            Intent a = new Intent(this, ReportActivity.class);
             startActivity(a);
         }
 

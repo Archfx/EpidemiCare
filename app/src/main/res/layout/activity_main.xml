@@ -103,7 +103,7 @@
                     android:backgroundTint="?android:attr/panelBackground"
                     android:contentDescription="Report @string/dummy_button"
                     android:cropToPadding="true"
-                    android:onClick="onClickStatus"
+                    android:onClick="onClickReport"
                     android:scaleType="fitCenter"
                     android:visibility="visible"
                     app:srcCompat="@drawable/report"

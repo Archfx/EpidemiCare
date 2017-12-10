@@ -37,6 +37,11 @@
             android:name=".ProfileActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_profile"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".ReportActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_report"
             android:theme="@style/FullscreenTheme"></activity>
     </application>
 
