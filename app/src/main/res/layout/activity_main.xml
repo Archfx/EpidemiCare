@@ -40,7 +40,7 @@
                 android:scaleType="fitXY"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:srcCompat="@drawable/backgrounddoodle"
+                app:srcCompat="@drawable/backgroundimage"
                 tools:layout_editor_absoluteY="-76dp" />
 
         </LinearLayout>
