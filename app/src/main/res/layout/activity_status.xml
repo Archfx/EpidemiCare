@@ -23,9 +23,21 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="matrix"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/backgrounddoodle" />
+
+            <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="339dp"
-                android:layout_height="612dp"
+                android:layout_width="300dp"
+                android:layout_height="550dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -34,8 +46,8 @@
                 app:srcCompat="@android:color/white" />
 
             <LinearLayout
-                android:layout_width="319dp"
-                android:layout_height="614dp"
+                android:layout_width="283dp"
+                android:layout_height="518dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -66,12 +78,6 @@
                     android:layout_height="match_parent">
 
                 </com.github.mikephil.charting.charts.PieChart>
-
-                <ImageButton
-                    android:id="@+id/Back"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/button_onoff_indicator_off" android:contentDescription="TODO"/>
 
             </LinearLayout>
         </android.support.constraint.ConstraintLayout>
