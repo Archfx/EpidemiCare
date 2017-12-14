@@ -179,6 +179,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:adjustViewBounds="false"
+                    android:backgroundTint="@android:color/transparent"
                     android:onClick="onClickConfirm"
                     android:scaleType="fitCenter"
                     app:srcCompat="@drawable/confirm" />
