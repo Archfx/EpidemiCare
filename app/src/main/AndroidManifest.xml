@@ -42,6 +42,11 @@
             android:name=".ReportActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_report"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".ConfirmActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_confirm"
             android:theme="@style/FullscreenTheme"></activity>
     </application>
 

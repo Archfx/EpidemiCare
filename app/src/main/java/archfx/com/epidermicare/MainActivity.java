@@ -53,4 +53,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    public void onClickConfirm(View view)
+    {
+        if(view.getId()==R.id.confirmButton) {
+            Intent d = new Intent(this,ConfirmActivity.class);
+            startActivity(d);
+        }
+
+    }
 }

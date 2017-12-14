@@ -51,16 +51,18 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="264dp"
-                android:layout_height="486dp"
+                android:layout_width="272dp"
+                android:layout_height="545dp"
                 android:adjustViewBounds="false"
                 android:cropToPadding="false"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.504"
                 app:srcCompat="@android:color/white" />
 
 
@@ -72,15 +74,17 @@
 
             <LinearLayout
                 android:layout_width="246dp"
-                android:layout_height="465dp"
+                android:layout_height="553dp"
                 android:layout_marginBottom="16dp"
                 android:layout_marginTop="8dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.571">
 
                 <TextView
                     android:id="@+id/title"
@@ -106,7 +110,7 @@
                 <ImageButton
                     android:id="@+id/ReportButton"
                     android:layout_width="match_parent"
-                    android:layout_height="96dp"
+                    android:layout_height="100dp"
                     android:backgroundTint="?android:attr/panelBackground"
                     android:contentDescription="Report @string/dummy_button"
                     android:cropToPadding="true"
@@ -129,7 +133,7 @@
                 <ImageButton
                     android:id="@+id/StatusButton"
                     android:layout_width="match_parent"
-                    android:layout_height="101dp"
+                    android:layout_height="100dp"
                     android:backgroundTint="?android:attr/panelBackground"
                     android:onClick="onClickStatus"
                     android:scaleType="fitCenter"
@@ -152,6 +156,7 @@
                     android:layout_height="100dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginTop="8dp"
+                    android:adjustViewBounds="false"
                     android:backgroundTint="?android:attr/panelBackground"
                     android:onClick="onClickProfile"
                     android:scaleType="fitCenter"
@@ -168,6 +173,21 @@
                     android:textAlignment="center"
                     tools:layout_editor_absoluteX="131dp"
                     tools:layout_editor_absoluteY="453dp" />
+
+                <ImageButton
+                    android:id="@+id/confirmButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:adjustViewBounds="false"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/confirm" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Confirm a Disease"
+                    android:textAlignment="center" />
             </LinearLayout>
 
         </android.support.constraint.ConstraintLayout>
