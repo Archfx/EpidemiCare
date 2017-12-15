@@ -67,3 +67,43 @@ CREATE TABLE Hospital (
   Location          varchar(30),
   primary key (Hospital_ID)
 );
+
+######### Relations
+
+CREATE TABLE Owns (
+  Patient_ID varchar(10) references Patient,
+  Hospital_ID varchar(10) references Disease_Report, *****
+  primary key (Patient_ID, Hospital_ID)
+);
+
+CREATE TABLE Treated_at (
+  Patient_ID varchar(10) references Patient,
+  Hospital_ID varchar(10) references Hospital,
+  primary key (Patient_ID, Hospital_ID)
+);
+
+CREATE TABLE Works_at (
+  Doctor_ID varchar(10) references Doctor,
+  Hospital_ID varchar(10) references Hospital,
+  primary key (Doctor_ID, Hospital_ID)
+);
+
+CREATE TABLE Modify (
+  Doctor_ID varchar(10) references Doctor,
+  Hospital_ID varchar(10) references Disease_Report,
+  primary key (Patient_ID, Hospital_ID)
+);
+
+CREATE TABLE Can_be (
+  Patient_ID varchar(10) references Patient,
+  Hospital_ID varchar(10) references Hospital,
+  primary key (Patient_ID, Hospital_ID)
+);
+
+
+
+CREATE TABLE Owns (
+  Patient_ID varchar(10) references Patient,
+  Hospital_ID varchar(10) references Hospital,
+  primary key (Patient_ID, Hospital_ID)
+);
