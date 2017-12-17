@@ -23,7 +23,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView10"
+                android:id="@+id/background"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
@@ -35,7 +35,7 @@
                 app:srcCompat="@drawable/backgroundimage" />
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/wback"
                 android:layout_width="300dp"
                 android:layout_height="550dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -57,8 +57,8 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="match_parent"
+                    android:id="@+id/Title"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Current Status"
                     android:textAlignment="center"
@@ -66,8 +66,8 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="match_parent"
+                    android:id="@+id/subtitle"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="of Sri lanka"
                     android:textAlignment="center"
