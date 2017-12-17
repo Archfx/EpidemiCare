@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClickStatus(View view)
     {
         if(view.getId()==R.id.StatusButton) {
-
+            statusSet();
 
         }
 
@@ -184,8 +184,8 @@ public class MainActivity extends AppCompatActivity {
 
 
                         // Launch main activity
-                        float diseseaseData[]={98,844,46,451,151,11,151,151,151,5151,5151};
-                        String disName[]={"sadads","sadads","sadads","sadads","sadads","sadads","sadads","sadads","sadads","sadads","sadads"};
+                        float diseseaseData[]={};
+                        String disName[]={};
                         Intent c = new Intent(MainActivity.this, StatusActivity.class);
                         c.putExtra("diseseaseData",diseseaseData);
                         c.putExtra("disName",disName);
