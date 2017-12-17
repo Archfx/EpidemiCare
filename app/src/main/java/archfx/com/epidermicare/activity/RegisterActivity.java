@@ -40,6 +40,11 @@ public class RegisterActivity extends Activity {
     private static final String TAG = RegisterActivity.class.getSimpleName();
     private Button btnRegister;
     private Button btnLinkToLogin;
+    private EditText inputDistrict;
+    private EditText inputDateOfBirth;
+    private EditText inputGender;
+    private EditText inputNic;
+    private EditText inputGuardianNic;
     private EditText inputFullName;
     private EditText inputEmail;
     private EditText inputPassword;
@@ -55,9 +60,13 @@ public class RegisterActivity extends Activity {
         inputFullName = (EditText) findViewById(R.id.name);
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
+        inputDistrict = (EditText) findViewById(R.id.area);
+        inputDateOfBirth = (EditText) findViewById(R.id.date);
+        inputGender = (EditText) findViewById(R.id.gender);
+        inputNic = (EditText) findViewById(R.id.nic);
+        inputGuardianNic = (EditText) findViewById(R.id.gnic);
         btnRegister = (Button) findViewById(R.id.btnRegister);
         btnLinkToLogin = (Button) findViewById(R.id.btnLinkToLoginScreen);
-
         // Progress dialog
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
@@ -83,9 +92,14 @@ public class RegisterActivity extends Activity {
                 String name = inputFullName.getText().toString().trim();
                 String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
+                String dateOfbirth = inputDateOfBirth.getText().toString().trim();
+                String gender = inputGender.getText().toString().trim();
+                String district = inputDistrict.getText().toString().trim();
+                String guardiansNic = inputGuardianNic.getText().toString().trim();
+                String nic = inputNic.getText().toString().trim();
 
                 if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
-                    registerUser(name, email, password);
+                    registerUser(name, email, password,dateOfbirth,gender,district,guardiansNic,nic);
                 } else {
                     Toast.makeText(getApplicationContext(),
                             "Please enter your details!", Toast.LENGTH_LONG)
@@ -112,7 +126,8 @@ public class RegisterActivity extends Activity {
      * email, password) to register url
      * */
     private void registerUser(final String name, final String email,
-                              final String password) {
+                              final String password,final String dateOfBirth, final String gender,
+                              final String district,final String guardiansNic,final String nic) {
         // Tag used to cancel the request
         String tag_string_req = "req_register";
 
@@ -183,6 +198,11 @@ public class RegisterActivity extends Activity {
                 params.put("name", name);
                 params.put("email", email);
                 params.put("password", password);
+                params.put("dateOfBirth", dateOfBirth);
+                params.put("gender", gender);
+                params.put("district", district);
+                params.put("guardiansNic", guardiansNic);
+                params.put("nic", nic);
 
                 return params;
             }
