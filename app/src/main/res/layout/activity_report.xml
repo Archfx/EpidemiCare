@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/pname"
+                    android:id="@+id/pName"
                     android:layout_width="match_parent"
                     android:layout_height="42dp"
                     android:hint="Name of Patient"
@@ -117,6 +117,23 @@
             </android.support.design.widget.TextInputLayout>
 
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/nicPatient"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:hint="NIC of patient"
+                    android:imeActionId="6"
+                    android:imeActionLabel="@string/action_sign_in_short"
+                    android:imeOptions="actionUnspecified"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
 
 
             <android.support.design.widget.TextInputLayout
@@ -157,7 +174,36 @@
 
             </android.support.design.widget.TextInputLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnReport"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="115dp"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Report"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnBack"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Back"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
         </LinearLayout>
+
 
     </android.support.constraint.ConstraintLayout>
 
