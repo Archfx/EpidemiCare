@@ -110,17 +110,17 @@ public class ReportActivity extends AppCompatActivity {
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
                     if (!error) {
-                        // User successfully stored in MySQL
-                        // Now store the user in sqlite
-                        String uid = jObj.getString("uid");
+//                        // User successfully stored in MySQL
+//                        // Now store the user in sqlite
+//                        String uid = jObj.getString("uid");
+//
+//                        JSONObject user = jObj.getJSONObject("user");
+//                        String name = user.getString("name");
+//                        String email = user.getString("email");
+//                        String created_at = user
+//                                .getString("created_at");
 
-                        JSONObject user = jObj.getJSONObject("user");
-                        String name = user.getString("name");
-                        String email = user.getString("email");
-                        String created_at = user
-                                .getString("created_at");
-
-                        // Inserting row in users table
+                        // Inserting row in report table
                         db.addReport(patient, nic, disease, district, date, detail, "false");
 
                         Toast.makeText(getApplicationContext(), "Report successfully submitted!", Toast.LENGTH_LONG).show();
@@ -159,11 +159,11 @@ public class ReportActivity extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 // Posting params to register url
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("pname", patient);
-                params.put("pnic", nic);
-                params.put("dname", disease);
-                params.put("date", date);
-                params.put("detail", detail);
+                params.put("patientName", patient);
+                params.put("patientNic", nic);
+                params.put("diseaseName", disease);
+                params.put("reportedDate", date);
+                params.put("isConfirmed", detail);
                 params.put("district", district);
 
                 return params;
