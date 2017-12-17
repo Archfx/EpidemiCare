@@ -14,43 +14,43 @@
 
         <ImageView
             android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/backgroundimage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="fitXY" />
+            app:srcCompat="@drawable/backgroundimage" />
 
         <ImageView
             android:id="@+id/imageView2"
+            android:layout_width="285dp"
+            android:layout_height="477dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:color/white"
-            android:layout_width="285dp"
-            android:layout_height="477dp" />
+            app:srcCompat="@android:color/white" />
 
         <LinearLayout
             android:layout_width="226dp"
-            android:layout_height="367dp"
+            android:layout_height="463dp"
             android:layout_marginTop="16dp"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.419">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/signuptitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sign Up"
@@ -97,6 +97,30 @@
                 android:ems="10"
                 android:inputType="date"
                 android:text="Date" />
+
+            <EditText
+                android:id="@+id/nic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text|date"
+                android:text="NIC" />
+
+            <EditText
+                android:id="@+id/gnic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text|date"
+                android:text="Guardian NIC" />
+
+            <EditText
+                android:id="@+id/gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text|date"
+                android:text="Gender" />
 
             <LinearLayout
                 android:layout_width="match_parent"
