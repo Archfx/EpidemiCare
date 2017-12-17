@@ -75,20 +75,20 @@
                 android:text="Email" />
 
             <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:text="Password" />
+
+            <EditText
                 android:id="@+id/area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPostalAddress"
                 android:text="Area" />
-
-            <EditText
-                android:id="@+id/editText4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textMultiLine"
-                android:text="Details" />
 
             <EditText
                 android:id="@+id/editText5"
