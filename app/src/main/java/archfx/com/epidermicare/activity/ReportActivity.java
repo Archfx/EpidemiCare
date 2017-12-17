@@ -58,9 +58,9 @@ public class ReportActivity extends AppCompatActivity {
         pName = (EditText) findViewById(R.id.pName);
         pNIC = (EditText) findViewById(R.id.nicPatient);
         dName = (EditText) findViewById(R.id.dName);
-        area = (EditText) findViewById(R.id.area);
+        area = (EditText) findViewById(R.id.Area);
         details = (EditText) findViewById(R.id.details_epi);
-        date = (EditText) findViewById(R.id.date);
+        date = (EditText) findViewById(R.id.Date);
         btnReport = (Button) findViewById(R.id.btnReport);
 
         pDialog = new ProgressDialog(this);
