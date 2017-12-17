@@ -1,4 +1,5 @@
-package archfx.com.epidermicare;
+package archfx.com.epidermicare.activity;
+
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -9,6 +10,8 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+
+import archfx.com.epidermicare.R;
 
 
 public class MainActivity extends AppCompatActivity {

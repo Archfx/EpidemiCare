@@ -34,6 +34,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import archfx.com.epidermicare.R;
+
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
