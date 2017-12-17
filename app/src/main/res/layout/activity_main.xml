@@ -77,6 +77,7 @@
                 android:layout_height="553dp"
                 android:layout_marginBottom="16dp"
                 android:layout_marginTop="8dp"
+                android:gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -110,7 +111,7 @@
                 <ImageButton
                     android:id="@+id/ReportButton"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="wrap_content"
                     android:backgroundTint="?android:attr/panelBackground"
                     android:contentDescription="Report @string/dummy_button"
                     android:cropToPadding="false"
@@ -133,7 +134,7 @@
                 <ImageButton
                     android:id="@+id/StatusButton"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="wrap_content"
                     android:backgroundTint="?android:attr/panelBackground"
                     android:onClick="onClickStatus"
                     android:scaleType="fitCenter"
@@ -153,7 +154,7 @@
                 <ImageButton
                     android:id="@+id/ProfileButton"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:layout_marginTop="8dp"
                     android:adjustViewBounds="false"
@@ -177,7 +178,7 @@
                 <ImageButton
                     android:id="@+id/confirmButton"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="wrap_content"
                     android:adjustViewBounds="false"
                     android:backgroundTint="@android:color/transparent"
                     android:onClick="onClickConfirm"
