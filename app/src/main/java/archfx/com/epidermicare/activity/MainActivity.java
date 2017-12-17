@@ -1,12 +1,14 @@
-package archfx.com.epidermicare.activity;
+package archfx.com.epidermicare;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.MotionEvent;
 import android.view.View;
-
-import archfx.com.epidermicare.R;
+import android.view.Window;
 
 
 public class MainActivity extends AppCompatActivity {
