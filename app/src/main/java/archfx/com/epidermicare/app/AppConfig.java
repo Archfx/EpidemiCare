@@ -11,4 +11,10 @@ public class AppConfig {
     // Server user register url
     public static String URL_REGISTER = "https://cjayasanka93.000webhostapp.com/test_login/register.php";
 
+    // Server user report url
+    public static String URL_REPORT = "https://cjayasanka93.000webhostapp.com/test_login/report.php";
+
+    // Server user confirm url
+    public static String URL_CONFIRM = "https://cjayasanka93.000webhostapp.com/test_login/confirm.php";
+
 }
