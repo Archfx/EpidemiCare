@@ -175,8 +175,9 @@ public class MainActivity extends AppCompatActivity {
                         String uid = jObj.getString("uid");
 
                         JSONObject user = jObj.getJSONObject("user");
-                        String name = user.getString("name");
-                        String email = user.getString("email");
+                        String DiseaseName = user.getString("DiseaseName");
+                        String DiseaseCount = user.getString("DiseaseCount");
+                        float DisCount= Float.parseFloat(DiseaseCount);
                         String created_at = user
                                 .getString("created_at");
 
@@ -184,8 +185,8 @@ public class MainActivity extends AppCompatActivity {
 
 
                         // Launch main activity
-                        float diseseaseData[]={};
-                        String disName[]={};
+                        float diseseaseData[]={DisCount};
+                        String disName[]={DiseaseName};
                         Intent c = new Intent(MainActivity.this, StatusActivity.class);
                         c.putExtra("diseseaseData",diseseaseData);
                         c.putExtra("disName",disName);
