@@ -34,6 +34,17 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     private static final String KEY_UID = "uid";
     private static final String KEY_CREATED_AT = "created_at";
 
+    // Report table name
+    private static final String TABLE_REPORTS = "reports";
+
+    // ReportActivity Table Columns names
+    private static final String KEY_ID = "id";
+    private static final String KEY_NAME = "name";
+    private static final String KEY_EMAIL = "email";
+    private static final String KEY_UID = "uid";
+    private static final String KEY_CREATED_AT = "created_at";
+
+
     public SQLiteHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -114,6 +125,25 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         db.close();
 
         Log.d(TAG, "Deleted all user info from sqlite");
+    }
+
+    /**
+     * Storing report details in database
+     * */
+    public void addReport(String name, String email, String uid, String created_at) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME, name); // Name
+        values.put(KEY_EMAIL, email); // Email
+        values.put(KEY_UID, uid); // Email
+        values.put(KEY_CREATED_AT, created_at); // Created At
+
+        // Inserting Row
+        long id = db.insert(TABLE_USER, null, values);
+        db.close(); // Closing database connection
+
+        Log.d(TAG, "New user inserted into sqlite: " + id);
     }
 
 }
