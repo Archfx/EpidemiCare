@@ -225,7 +225,7 @@
                 <Button
                     android:id="@+id/btnReport"
                     style="?android:textAppearanceSmall"
-                    android:layout_width="115dp"
+                    android:layout_width="133dp"
                     android:layout_height="41dp"
                     android:layout_marginTop="16dp"
                     android:fontFamily="sans-serif"
@@ -234,12 +234,13 @@
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/btnBack"
+                    android:id="@+id/backButton"
                     style="?android:textAppearanceSmall"
                     android:layout_width="match_parent"
                     android:layout_height="41dp"
                     android:layout_marginTop="16dp"
                     android:fontFamily="sans-serif"
+                    android:onClick="onClickback"
                     android:text="Back"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold" />

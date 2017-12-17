@@ -184,5 +184,14 @@ public class ReportActivity extends AppCompatActivity {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
+    public  void onClickback(View view)
+    {
+        if(view.getId()==R.id.backButton) {
+            Intent b = new Intent(this, MainActivity.class);
+            startActivity(b);
+        }
+
+
+    }
 
 }
