@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.Login"
+            android:name=".activity.LoginActivity"
             android:label="EpidemiCare">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,7 +46,7 @@
             android:label="@string/title_activity_confirm"
             android:theme="@style/FullscreenTheme" />
         <activity
-            android:name=".activity.SignUpActivity"
+            android:name=".activity.RegisterActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_sign_up"
             android:theme="@style/FullscreenTheme"></activity>
