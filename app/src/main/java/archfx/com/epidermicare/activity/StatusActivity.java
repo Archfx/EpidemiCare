@@ -1,6 +1,7 @@
 package archfx.com.epidermicare.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,8 +25,8 @@ import archfx.com.epidermicare.R;
  * status bar and navigation/system bar) with user interaction.
  */
 public class StatusActivity extends AppCompatActivity {
-    float diseseaseData[]={98,844,46,451,151,11,151,151,151,5151,5151};
-    String disName[]={"sadads","sadads","sadads","sadads","sadads","sadads","sadads","sadads","sadads","sadads","sadads"};
+    float diseseaseData[];//={98,844,46,451,151,11,151,151,151,5151,5151};
+    String disName[];//={"sadads","sadads","sadads","sadads","sadads","sadads","sadads","sadads","sadads","sadads","sadads"};
 
 
     @Override
@@ -33,9 +34,14 @@ public class StatusActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setTitle("status of the Country");
         setContentView(R.layout.activity_status);
+        Bundle extras = getIntent().getExtras();
+        float diseseaseData[]= extras.getFloatArray("diseseaseData");
+        String disName[] = extras.getStringArray("disName");
+        setValues(diseseaseData,disName);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         setupPieChart();
+
 
 
     }
@@ -56,5 +62,19 @@ public class StatusActivity extends AppCompatActivity {
         chart.animateX(1000);
         chart.invalidate();
     }
+    public void setValues(float count[],String dName[])
+    {
+        diseseaseData=count;
+        disName=dName;
 
+    }
+    public  void onClickback(View view)
+    {
+        if(view.getId()==R.id.backButton) {
+            Intent b = new Intent(this, MainActivity.class);
+            startActivity(b);
+        }
+
+
+    }
 }
