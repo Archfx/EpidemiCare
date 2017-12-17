@@ -66,13 +66,13 @@
                     app:srcCompat="@drawable/face" />
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="First Name" />
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Last Name" />
@@ -94,6 +94,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Gender" />
+
+                <Button
+                    android:id="@+id/btnLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/holo_red_light"
+                    android:onClick="lgOut"
+                    android:text="Logout" />
             </LinearLayout>
         </android.support.constraint.ConstraintLayout>
 

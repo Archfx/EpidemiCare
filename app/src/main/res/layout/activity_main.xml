@@ -184,7 +184,7 @@
                     android:backgroundTint="@android:color/transparent"
                     android:onClick="onClickConfirm"
                     android:scaleType="fitCenter"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     app:srcCompat="@drawable/confirm" />
 
                 <TextView
@@ -193,7 +193,7 @@
                     android:layout_height="wrap_content"
                     android:text="Confirm a Disease"
                     android:textAlignment="center"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
             </LinearLayout>
 
         </android.support.constraint.ConstraintLayout>

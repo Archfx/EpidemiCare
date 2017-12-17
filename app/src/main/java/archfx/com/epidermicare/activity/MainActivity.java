@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView txtName;
     private TextView txtEmail;
-  //  private Button btnLogout;
+
     ImageButton confirmbtn;
     TextView confirmbuttonText;
     User currentUsr=new User();
@@ -40,14 +40,16 @@ public class MainActivity extends AppCompatActivity {
 
         //txtName = (TextView) findViewById(R.id.name);
         //txtEmail = (TextView) findViewById(R.id.email);
-        //   btnLogout = (Button) findViewById(R.id.btnLogout);
+
         confirmbtn = (ImageButton) findViewById(R.id.confirmButton);
         confirmbuttonText = (TextView) findViewById(R.id.confirmText);
 
 
 
+
+
         //if user is a doctor set confirmation of epidemi to visible
-/*
+
         if (currentUsr.isIsdoctor()) {
             confirmbtn.setVisibility(View.VISIBLE);
             confirmbuttonText.setVisibility(View.VISIBLE);
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             confirmbtn.setVisibility(View.GONE);
             confirmbuttonText.setVisibility(View.GONE);
         }
-*/
+
 
         // SqLite database handler
         db = new SQLiteHandler(getApplicationContext());
@@ -65,60 +67,40 @@ public class MainActivity extends AppCompatActivity {
         // session manager
         session = new SessionManager(getApplicationContext());
 
-        if (!session.isLoggedIn()) {
-            logoutUser();
-        }
 
-        // Fetching user details from sqlite
-        HashMap<String, String> user = db.getUserDetails();
-
-        String name = user.get("name");
-        String email = user.get("email");
-
-        // Displaying the user details on the screen
-       // txtName.setText(name);
-      //  txtEmail.setText(email);
-
-        // Logout button click event
-/*        btnLogout.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                logoutUser();
-            }
-        });
-    }*/
     }
-
-    /**
-     * Logging out the user. Will set isLoggedIn flag to false in shared
-     * preferences Clears the user data from sqlite users table
-     * */
-    private void logoutUser() {
+    public void logoutUser() {
         session.setLogin(false);
 
         db.deleteUsers();
 
         // Launching the login activity
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this, LoginActivity.class);
+        //startActivity(intent);
         finish();
     }
 
-        public  void onClickProfile(View view)
+
+
+
+
+    public  void onClickProfile(View view)
     {
         if(view.getId()==R.id.ProfileButton) {
             Intent b = new Intent(this, ProfileActivity.class);
             startActivity(b);
         }
 
+
     }
     public void onClickReport(View view)
     {
         if(view.getId()==R.id.ReportButton) {
+
             Intent a = new Intent(this, ReportActivity.class);
             startActivity(a);
         }
+
 
     }
     public void onClickStatus(View view)
