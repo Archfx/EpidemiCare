@@ -87,8 +87,6 @@ package archfx.com.epidermicare.activity;
 //
 //    }
 //}
-import info.androidhive.loginandregistration.helper.SQLiteHandler;
-import info.androidhive.loginandregistration.helper.SessionManager;
 
 import java.util.HashMap;
 
@@ -98,6 +96,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import archfx.com.epidermicare.R;
+import archfx.com.epidermicare.helper.SQLiteHandler;
+import archfx.com.epidermicare.helper.SessionManager;
 
 public class MainActivity extends Activity {
 
