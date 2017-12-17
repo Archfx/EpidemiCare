@@ -66,6 +66,11 @@ public class MainActivity extends AppCompatActivity {
 
         // session manager
         session = new SessionManager(getApplicationContext());
+        HashMap<String, String> user = db.getUserDetails();
+
+        if (!session.isLoggedIn()) {
+            logoutUser();
+        }
 
 
     }
@@ -75,11 +80,19 @@ public class MainActivity extends AppCompatActivity {
         db.deleteUsers();
 
         // Launching the login activity
-        //Intent intent = new Intent(this, LoginActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
         finish();
     }
 
+    public void lgOut(View view)
+    {
+        if(view.getId()==R.id.btnLogout) {
+            logoutUser();
+
+
+        }
+    }
 
 
 

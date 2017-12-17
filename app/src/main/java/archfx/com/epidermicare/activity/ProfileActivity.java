@@ -26,7 +26,6 @@ import archfx.com.epidermicare.helper.SessionManager;
 public class ProfileActivity extends AppCompatActivity {
     private TextView txtName;
     private TextView txtEmail;
-    private Button btnLogout;
     private SQLiteHandler db;
     private SessionManager session;
     MainActivity main=new MainActivity();
@@ -42,7 +41,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         txtName = (TextView) findViewById(R.id.name);
         txtEmail = (TextView) findViewById(R.id.email);
-        btnLogout = (Button) findViewById(R.id.btnLogout);
 
         db = new SQLiteHandler(getApplicationContext());
 
@@ -69,9 +67,8 @@ public class ProfileActivity extends AppCompatActivity {
     public void lgOut(View view)
     {
         if(view.getId()==R.id.btnLogout) {
-            //main.logoutUser();
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
+            main.lgOut(view);
+
 
         }
     }
