@@ -90,12 +90,6 @@ public class MainActivity extends AppCompatActivity {
         this.finish();
     }
 
-    public void lgOutmain(View view)
-    {
-
-            logoutUser();
-
-    }
 
 
 
