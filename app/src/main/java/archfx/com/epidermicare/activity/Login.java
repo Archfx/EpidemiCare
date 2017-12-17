@@ -1,4 +1,4 @@
-package archfx.com.epidermicare;
+package archfx.com.epidermicare.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

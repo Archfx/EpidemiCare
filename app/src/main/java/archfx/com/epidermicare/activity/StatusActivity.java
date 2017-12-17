@@ -1,4 +1,4 @@
-package archfx.com.epidermicare;
+package archfx.com.epidermicare.activity;
 
 import android.annotation.SuppressLint;
 import android.support.v7.app.ActionBar;
@@ -16,6 +16,8 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import archfx.com.epidermicare.R;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.

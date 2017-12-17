@@ -1,4 +1,4 @@
-package archfx.com.epidermicare;
+package archfx.com.epidermicare.activity;
 
 import android.annotation.SuppressLint;
 import android.support.v7.app.ActionBar;
@@ -8,22 +8,24 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 
+import archfx.com.epidermicare.R;
+
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class ReportActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_report);
+        setContentView(R.layout.activity_profile);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+        //setTitle("My profile");
 
 
     }
-
 
 }
