@@ -182,14 +182,16 @@
                     android:backgroundTint="@android:color/transparent"
                     android:onClick="onClickConfirm"
                     android:scaleType="fitCenter"
+                    android:visibility="gone"
                     app:srcCompat="@drawable/confirm" />
 
                 <TextView
-                    android:id="@+id/textView13"
+                    android:id="@+id/confirmText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Confirm a Disease"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:visibility="gone" />
             </LinearLayout>
 
         </android.support.constraint.ConstraintLayout>
