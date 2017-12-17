@@ -1,200 +1,152 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="archfx.com.epidermicare.activity.LoginActivity">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:gravity="center_horizontal"
+android:orientation="vertical"
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+tools:context="archfx.com.epidermicare.activity.LoginActivity">
 
-    <!-- Login progress -->
-    <android.support.constraint.ConstraintLayout
+<!-- Login progress -->
+<android.support.constraint.ConstraintLayout
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+<ImageView
+android:id="@+id/imageView6"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:scaleType="fitXY"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.5"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:srcCompat="@drawable/backgroundimage" />
+
+<ImageView
+android:id="@+id/imageView7"
+android:layout_width="349dp"
+android:layout_height="310dp"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.476"
+app:layout_constraintLeft_toLeftOf="parent"
+app:layout_constraintRight_toRightOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.556"
+app:srcCompat="@android:color/white" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="219dp"
+        android:layout_height="36dp"
+        android:fontFamily="sans-serif"
+        android:text="EpidemiCare App"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/email_login_form"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+<LinearLayout
+android:id="@+id/email_login_form"
+android:layout_width="243dp"
+android:layout_height="300dp"
+android:gravity="center"
+android:orientation="vertical"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.505"
+app:layout_constraintLeft_toLeftOf="parent"
+app:layout_constraintRight_toRightOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.66">
+
+<ImageView
+android:id="@+id/imageView11"
+android:layout_width="match_parent"
+android:layout_height="79dp"
+app:srcCompat="@drawable/splash"
+tools:layout_editor_absoluteX="120dp" />
+
+<android.support.design.widget.TextInputLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
+
+<AutoCompleteTextView
+android:id="@+id/email"
+android:layout_width="match_parent"
+android:layout_height="42dp"
+android:hint="@string/prompt_email"
+android:inputType="textEmailAddress"
+android:maxLines="1"
+android:singleLine="true" />
+
+</android.support.design.widget.TextInputLayout>
+
+<android.support.design.widget.TextInputLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
+
+<EditText
+android:id="@+id/password"
+android:layout_width="match_parent"
+android:layout_height="42dp"
+android:hint="@string/prompt_password"
+android:imeActionId="6"
+android:imeActionLabel="@string/action_sign_in_short"
+android:imeOptions="actionUnspecified"
+android:inputType="textPassword"
+android:maxLines="1"
+android:singleLine="true" />
+
+</android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnLogin"
+        style="?android:textAppearanceSmall"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="41dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif"
+        android:text="Sign In"
+        android:textColor="@color/bg_register"
+        android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/backgroundimage" />
+    <Button
+        android:id="@+id/btnLinkToRegisterScreen"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:fontFamily="sans-serif"
+        android:text="Sign Up"
+        android:textColor="@color/bg_register" />
 
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="349dp"
-            android:layout_height="310dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.476"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.556"
-            app:srcCompat="@android:color/white" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="219dp"
-            android:layout_height="36dp"
-            android:fontFamily="sans-serif"
-            android:text="EpidemiCare App"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/email_login_form"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.504"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <LinearLayout
-            android:id="@+id/email_login_form"
-            android:layout_width="243dp"
-            android:layout_height="300dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.505"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.66">
-
-            <ImageView
-                android:id="@+id/imageView11"
-                android:layout_width="match_parent"
-                android:layout_height="79dp"
-                app:srcCompat="@drawable/splash"
-                tools:layout_editor_absoluteX="120dp" />
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/email"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@color/white"
-                    android:hint="@string/hint_email"
-                    android:inputType="textEmailAddress"
-                    android:padding="10dp"
-                    android:singleLine="true"
-                    android:textColor="@color/input_login"
-                    android:textColorHint="@color/input_login_hint" />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/password"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:background="@color/white"
-                android:hint="@string/hint_password"
-                android:inputType="textPassword"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="@color/input_login"
-                android:textColorHint="@color/input_login_hint" />
-
-            <!--</android.support.design.widget.TextInputLayout>-->
-
-            <!-- Login Button -->
-
-            <Button
-                android:id="@+id/btnLogin"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dip"
-                android:background="@color/btn_login_bg"
-                android:text="@string/btn_login"
-                android:textColor="@color/btn_login" />
-
-            <!-- Link to Login Screen -->
-
-            <Button
-                android:id="@+id/btnLinkToRegisterScreen"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dip"
-                android:background="@null"
-                android:text="@string/btn_link_to_register"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="15dp" />
-
-        </LinearLayout>
-    </android.support.constraint.ConstraintLayout>
-
-    <ProgressBar
-        android:id="@+id/login_progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone" />
-
-    <ScrollView
-        android:id="@+id/login_form"
-        android:layout_width="213dp"
-        android:layout_height="325dp">
-
-    </ScrollView>
 </LinearLayout>
+</android.support.constraint.ConstraintLayout>
 
+<ProgressBar
+android:id="@+id/login_progress"
+style="?android:attr/progressBarStyleLarge"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginBottom="8dp"
+android:visibility="gone" />
 
+<ScrollView
+android:id="@+id/login_form"
+android:layout_width="213dp"
+android:layout_height="325dp">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--android:layout_width="fill_parent"--><!--android:layout_height="fill_parent"--><!--android:background="@color/bg_login"--><!--android:gravity="center"--><!--android:orientation="vertical"--><!--android:padding="10dp" >-->
-
-    <!--<LinearLayout--><!--android:layout_width="fill_parent"--><!--android:layout_height="wrap_content"--><!--android:layout_gravity="center"--><!--android:orientation="vertical"--><!--android:paddingLeft="20dp"--><!--android:paddingRight="20dp" >-->
-
-    <!--<EditText--><!--android:id="@+id/email"--><!--android:layout_width="fill_parent"--><!--android:layout_height="wrap_content"--><!--android:layout_marginBottom="10dp"--><!--android:background="@color/white"--><!--android:hint="@string/hint_email"--><!--android:inputType="textEmailAddress"--><!--android:padding="10dp"--><!--android:singleLine="true"--><!--android:textColor="@color/input_login"--><!--android:textColorHint="@color/input_login_hint" />-->
-
-    <!--<EditText--><!--android:id="@+id/password"--><!--android:layout_width="fill_parent"--><!--android:layout_height="wrap_content"--><!--android:layout_marginBottom="10dp"--><!--android:background="@color/white"--><!--android:hint="@string/hint_password"--><!--android:inputType="textPassword"--><!--android:padding="10dp"--><!--android:singleLine="true"--><!--android:textColor="@color/input_login"--><!--android:textColorHint="@color/input_login_hint" />-->
-
-    <!--&lt;!&ndash; Login Button &ndash;&gt;-->
-
-    <!--<Button--><!--android:id="@+id/btnLogin"--><!--android:layout_width="fill_parent"--><!--android:layout_height="wrap_content"--><!--android:layout_marginTop="20dip"--><!--android:background="@color/btn_login_bg"--><!--android:text="@string/btn_login"--><!--android:textColor="@color/btn_login" />-->
-
-    <!--&lt;!&ndash; Link to Login Screen &ndash;&gt;-->
-
-    <!--<Button--><!--android:id="@+id/btnLinkToRegisterScreen"--><!--android:layout_width="fill_parent"--><!--android:layout_height="wrap_content"--><!--android:layout_marginTop="40dip"--><!--android:background="@null"--><!--android:text="@string/btn_link_to_register"--><!--android:textAllCaps="false"--><!--android:textColor="@color/white"--><!--android:textSize="15dp" />--><!--</LinearLayout>-->
-
-    <!--</LinearLayout>-->
+</ScrollView>
+</LinearLayout>
