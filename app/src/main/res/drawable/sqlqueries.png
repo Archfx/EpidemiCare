@@ -1,0 +1,109 @@
+CREATE TABLE Doctor (
+  Doctor_ID      varchar(10),
+  Doctor_name    varchar(30),
+  Specialization varchar(30),
+  Hospital       varchar(30),
+  WardNum        int,
+  userName           varchar(10),
+  Password           varchar(10),
+  primary key (Doctor_ID)
+);
+
+CREATE TABLE Disease_Report (
+  Disease_ID       varchar(10),
+  Patient_ID       varchar(10),
+  Doctor_id        varchar(10),
+  Identified_date         date,
+  Hospital         varchar(10),
+  Prescription    varchar(100),
+  Identified_place varchar(30),
+  primary key (Disease_ID)
+);
+
+CREATE TABLE Patient (
+  Patient_ID        varchar(10),
+  Patient_name      varchar(30),
+  dateOfBirth              date,
+  District          varchar(20),
+  Gender            varchar(10),
+  Guardian          varchar(30),
+  Patient_NIC        varchar(10),
+  userName           varchar(10),
+  Password           varchar(10),
+  primary key (Patient_ID)
+);
+
+CREATE TABLE Medical_Officer (
+  Officer_ID       varchar(10),
+  Officer_name     varchar(30),
+  AreaInCharge     varchar(30),
+  userName           varchar(10),
+  Password           varchar(10),
+  primary key (Officer_ID)
+);
+
+CREATE TABLE Spread_Log (
+  Desease_id varchar(10),
+  Spread_ID      int(10),
+  Catogory   varchar(20),
+  primary key (Spread_ID)
+
+);
+
+CREATE TABLE Epidemic_Data (
+  Epidemic_ID        varchar(10),
+  Reported_area      varchar(30),
+  Disease_ID          varchar(10),
+  Inital_Reported_date date,
+  Doctor_ID          varchar(10),
+  MedicalOfiicer_Id  varchar(10),
+  Reported_Patients     int,
+  primary key (Epidemic_ID)
+);
+
+CREATE TABLE Hospital (
+  Hospital_ID       varchar(10),
+  District          varchar(30),
+  Location          varchar(30),
+  primary key (Hospital_ID)
+);
+
+######### Relations
+
+CREATE TABLE Owns (
+  Patient_ID varchar(10) references Patient,
+  Hospital_ID varchar(10) references Disease_Report, *****
+  primary key (Patient_ID, Hospital_ID)
+);
+
+CREATE TABLE Treated_at (
+  Patient_ID varchar(10) references Patient,
+  Hospital_ID varchar(10) references Hospital,
+  primary key (Patient_ID, Hospital_ID)
+);
+
+CREATE TABLE Works_at (
+  Doctor_ID varchar(10) references Doctor,
+  Hospital_ID varchar(10) references Hospital,
+  primary key (Doctor_ID, Hospital_ID)
+);
+
+CREATE TABLE Modify (
+  Doctor_ID varchar(10) references Doctor,
+  Hospital_ID varchar(10) references Disease_Report,
+  primary key (Patient_ID, Hospital_ID)
+);
+
+CREATE TABLE Can_be (
+  Patient_ID varchar(10) references Patient,
+  Hospital_ID varchar(10) references Hospital,
+  primary key (Patient_ID, Hospital_ID)
+);
+
+
+
+CREATE TABLE Owns (
+  Patient_ID varchar(10) references Patient,
+  Hospital_ID varchar(10) references Hospital,
+  primary key (Patient_ID, Hospital_ID)
+);
