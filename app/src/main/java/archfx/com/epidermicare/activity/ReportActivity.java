@@ -121,16 +121,16 @@ public class ReportActivity extends AppCompatActivity {
                                 .getString("created_at");
 
                         // Inserting row in users table
-                        db.addReport(name, email, uid, created_at);
+                        db.addReport(patient, nic, disease, district, date, detail, "false");
 
-                        Toast.makeText(getApplicationContext(), "User successfully registered. Try login now!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Report successfully submitted!", Toast.LENGTH_LONG).show();
 
                         // Launch login activity
-                        Intent intent = new Intent(
-                                RegisterActivity.this,
-                                LoginActivity.class);
-                        startActivity(intent);
-                        finish();
+//                        Intent intent = new Intent(
+//                                RegisterActivity.this,
+//                                LoginActivity.class);
+//                        startActivity(intent);
+//                        finish();
                     } else {
 
                         // Error occurred in registration. Get the error
@@ -159,14 +159,12 @@ public class ReportActivity extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 // Posting params to register url
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("name", name);
-                params.put("email", email);
-                params.put("password", password);
-                params.put("dateOfBirth", dateOfBirth);
-                params.put("gender", gender);
+                params.put("pname", patient);
+                params.put("pnic", nic);
+                params.put("dname", disease);
+                params.put("date", date);
+                params.put("detail", detail);
                 params.put("district", district);
-                params.put("guardiansNic", guardiansNic);
-                params.put("nic", nic);
 
                 return params;
             }

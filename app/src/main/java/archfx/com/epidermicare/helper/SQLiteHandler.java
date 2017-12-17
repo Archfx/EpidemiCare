@@ -38,11 +38,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     private static final String TABLE_REPORTS = "reports";
 
     // ReportActivity Table Columns names
-    private static final String KEY_ID = "id";
-    private static final String KEY_NAME = "name";
-    private static final String KEY_EMAIL = "email";
-    private static final String KEY_UID = "uid";
-    private static final String KEY_CREATED_AT = "created_at";
+    private static final String KEY_PNAME = "pname";
+    private static final String KEY_PNIC = "pnic";
+    private static final String KEY_DNAME = "dname";
+    private static final String KEY_DATE = "date";
+    private static final String KEY_DETAILS = "details";
+    private static final String KEY_STATUS = "status";
 
 
     public SQLiteHandler(Context context) {
@@ -57,6 +58,14 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + KEY_EMAIL + " TEXT UNIQUE," + KEY_UID + " TEXT,"
                 + KEY_CREATED_AT + " TEXT" + ")";
         db.execSQL(CREATE_LOGIN_TABLE);
+
+
+        String CREATE_REPORT_TABLE = "CREATE TABLE " + TABLE_REPORTS + "("
+                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_PNAME + " TEXT,"
+                + KEY_PNIC + " TEXT," + KEY_DNAME + " TEXT," + KEY_DATE + " TEXT," + KEY_DETAILS + " TEXT,"
+                + KEY_STATUS + " TEXT" + ")";
+        db.execSQL(CREATE_REPORT_TABLE);
+
 
         Log.d(TAG, "Database tables created");
     }
@@ -130,20 +139,22 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     /**
      * Storing report details in database
      * */
-    public void addReport(String name, String email, String uid, String created_at) {
+    public void addReport(String PatientName, String PatientNic, String diseaseName, String Area, String ReportedDate, String details, String status) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_NAME, name); // Name
-        values.put(KEY_EMAIL, email); // Email
-        values.put(KEY_UID, uid); // Email
-        values.put(KEY_CREATED_AT, created_at); // Created At
+        values.put(KEY_PNAME, PatientName);
+        values.put(KEY_PNIC, PatientNic);
+        values.put(KEY_DNAME, diseaseName);
+        values.put(KEY_DATE, ReportedDate);
+        values.put(KEY_DETAILS, details);
+        values.put(KEY_STATUS, status);
 
         // Inserting Row
-        long id = db.insert(TABLE_USER, null, values);
+        long id = db.insert(TABLE_REPORTS, null, values);
         db.close(); // Closing database connection
 
-        Log.d(TAG, "New user inserted into sqlite: " + id);
+        Log.d(TAG, "New report inserted into sqlite: " + id);
     }
 
 }
