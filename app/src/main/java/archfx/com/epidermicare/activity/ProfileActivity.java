@@ -67,7 +67,12 @@ public class ProfileActivity extends AppCompatActivity {
     public void lgOut(View view)
     {
         if(view.getId()==R.id.btnLogout) {
-            main.lgOut(view);
+            session.setLogin(false);
+
+            db.deleteUsers();
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            //main.lgOutmain(view);
 
 
         }

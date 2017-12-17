@@ -38,12 +38,23 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-        //txtName = (TextView) findViewById(R.id.name);
-        //txtEmail = (TextView) findViewById(R.id.email);
 
         confirmbtn = (ImageButton) findViewById(R.id.confirmButton);
         confirmbuttonText = (TextView) findViewById(R.id.confirmText);
 
+
+        // SqLite database handler
+        db = new SQLiteHandler(getApplicationContext());
+
+        // session manager
+        session = new SessionManager(getApplicationContext());
+
+        HashMap<String, String> user = db.getUserDetails();
+/*        String isDoctor=user.get("is_doctor");
+        if(isDoctor=="true")
+        {
+            currentUsr.setIsdoctor(true);
+        }*/
 
 
 
@@ -61,12 +72,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        // SqLite database handler
-        db = new SQLiteHandler(getApplicationContext());
-
-        // session manager
-        session = new SessionManager(getApplicationContext());
-        HashMap<String, String> user = db.getUserDetails();
 
         if (!session.isLoggedIn()) {
             logoutUser();
@@ -82,16 +87,14 @@ public class MainActivity extends AppCompatActivity {
         // Launching the login activity
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
-        finish();
+        this.finish();
     }
 
-    public void lgOut(View view)
+    public void lgOutmain(View view)
     {
-        if(view.getId()==R.id.btnLogout) {
+
             logoutUser();
 
-
-        }
     }
 
 

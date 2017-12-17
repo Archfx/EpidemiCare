@@ -140,7 +140,8 @@
                     android:hint="National Identity Card No"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textSize="16sp" />
 
             </android.support.design.widget.TextInputLayout>
 
