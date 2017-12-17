@@ -113,7 +113,7 @@
                     android:layout_height="100dp"
                     android:backgroundTint="?android:attr/panelBackground"
                     android:contentDescription="Report @string/dummy_button"
-                    android:cropToPadding="true"
+                    android:cropToPadding="false"
                     android:onClick="onClickReport"
                     android:scaleType="fitCenter"
                     android:visibility="visible"

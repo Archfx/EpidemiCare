@@ -1,4 +1,4 @@
-package archfx.com.epidermicare;
+package archfx.com.epidermicare.app;
 
 /**
  * Created by cybx_live on 12/17/17.
