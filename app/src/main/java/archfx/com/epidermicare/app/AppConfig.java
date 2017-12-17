@@ -17,4 +17,7 @@ public class AppConfig {
     // Server user confirm url
     public static String URL_CONFIRM = "https://cjayasanka93.000webhostapp.com/test_login/confirm.php";
 
+    // Server user disease count url
+    public static String URL_COUNT = "https://cjayasanka93.000webhostapp.com/test_login/disease_count.php";
+
 }

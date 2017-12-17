@@ -125,12 +125,12 @@ public class ReportActivity extends AppCompatActivity {
 
                         Toast.makeText(getApplicationContext(), "Report successfully submitted!", Toast.LENGTH_LONG).show();
 
-                        // Launch login activity
-//                        Intent intent = new Intent(
-//                                RegisterActivity.this,
-//                                LoginActivity.class);
-//                        startActivity(intent);
-//                        finish();
+                        // Launch main activity
+                        Intent intent = new Intent(
+                                ReportActivity.this,
+                                MainActivity.class);
+                        startActivity(intent);
+                        finish();
                     } else {
 
                         // Error occurred in registration. Get the error
