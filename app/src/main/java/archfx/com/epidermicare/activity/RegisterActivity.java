@@ -209,7 +209,7 @@ public class RegisterActivity extends Activity {
 
         };
 
-        // Adding request to request queue
+        //Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
 
