@@ -54,10 +54,10 @@ public class NetworkStateChecker extends BroadcastReceiver {
                 if (cursor.moveToFirst()) {
                     do {
                         //calling the method to save the unsynced name to MySQL
-                        saveName(
-                                cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_ID)),
-                                cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME))
-                        );
+//                        saveName(
+//                                cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_ID)),
+//                                cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_NAME))
+//                        );
                     } while (cursor.moveToNext());
                 }
             }
@@ -70,40 +70,40 @@ public class NetworkStateChecker extends BroadcastReceiver {
     * if the name is successfully sent
     * we will update the status as synced in SQLite
     * */
-    private void saveName(final int id, final String name) {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, ReportActivity.URL_SAVE_NAME,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject obj = new JSONObject(response);
-                            if (!obj.getBoolean("error")) {
-                                //updating the status in sqlite
-                                db.updateNameStatus(id, ReportActivity.NAME_SYNCED_WITH_SERVER);
-
-                                //sending the broadcast to refresh the list
-                                context.sendBroadcast(new Intent(ReportActivity.DATA_SAVED_BROADCAST));
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
-                }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("name", name);
-                return params;
-            }
-        };
-
-        VolleySingleton.getInstance(context).addToRequestQueue(stringRequest);
-    }
+//    private void saveName(final int id, final String name) {
+//        StringRequest stringRequest = new StringRequest(Request.Method.POST, ReportActivity.URL_SAVE_NAME,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        try {
+//                            JSONObject obj = new JSONObject(response);
+//                            if (!obj.getBoolean("error")) {
+//                                //updating the status in sqlite
+//                                db.updateNameStatus(id, ReportActivity.NAME_SYNCED_WITH_SERVER);
+//
+//                                //sending the broadcast to refresh the list
+//                                context.sendBroadcast(new Intent(ReportActivity.DATA_SAVED_BROADCAST));
+//                            }
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//
+//                    }
+//                }) {
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String, String> params = new HashMap<>();
+//                params.put("name", name);
+//                return params;
+//            }
+//        };
+//
+//        VolleySingleton.getInstance(context).addToRequestQueue(stringRequest);
+//    }
 
 }
