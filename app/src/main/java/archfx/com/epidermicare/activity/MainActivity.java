@@ -70,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
+        // Progress dialog
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+
 
         confirmbtn = (ImageButton) findViewById(R.id.confirmButton);
         confirmbuttonText = (TextView) findViewById(R.id.confirmText);
@@ -230,5 +234,13 @@ public void retrive()
 
 }
 
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
 
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
 }

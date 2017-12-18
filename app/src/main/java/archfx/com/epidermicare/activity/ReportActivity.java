@@ -29,6 +29,7 @@ import archfx.com.epidermicare.R;
 import archfx.com.epidermicare.app.AppConfig;
 import archfx.com.epidermicare.app.AppController;
 import archfx.com.epidermicare.helper.SQLiteHandler;
+import com.android.volley.Request.Method;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -98,7 +99,7 @@ public class ReportActivity extends AppCompatActivity {
         pDialog.setMessage("Reporting ...");
         showDialog();
 
-        StringRequest strReq = new StringRequest(Request.Method.GET,
+        StringRequest strReq = new StringRequest(Method.POST,
                 AppConfig.URL_REPORT, new Response.Listener<String>() {
 
             @Override
@@ -121,7 +122,7 @@ public class ReportActivity extends AppCompatActivity {
          //                       .getString("created_at");
 
                         // Inserting row in report table
-                        db.addReport(patient, nic, diseaseName, district, date, detail, "false");
+//                        db.addReport(patient, nic, diseaseName, district, date, detail, "false");
 
                         Toast.makeText(getApplicationContext(), "Report successfully submitted!", Toast.LENGTH_LONG).show();
 
@@ -189,6 +190,7 @@ public class ReportActivity extends AppCompatActivity {
         if(view.getId()==R.id.backButton) {
             Intent b = new Intent(this, MainActivity.class);
             startActivity(b);
+            finish();
         }
 
 
