@@ -1,10 +1,16 @@
 package archfx.com.epidermicare.activity;
-
+import java.util.StringTokenizer;
 import java.util.HashMap;
 import java.util.Map;
-
+import android.os.AsyncTask;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +22,14 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -41,10 +55,12 @@ public class MainActivity extends AppCompatActivity {
     TextView confirmbuttonText;
     User currentUsr=new User();
     private ProgressDialog pDialog;
-    private static final String TAG = RegisterActivity.class.getSimpleName();
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     private SQLiteHandler db;
     private SessionManager session;
+    float  diseseaseData[]=new float[10];
+    String disName[]=new String[10];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
         confirmbtn = (ImageButton) findViewById(R.id.confirmButton);
         confirmbuttonText = (TextView) findViewById(R.id.confirmText);
 
-
         // SqLite database handler
         db = new SQLiteHandler(getApplicationContext());
 
@@ -66,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
 
         HashMap<String, String> user = db.getUserDetails();
+
 /*        String isDoctor=user.get("is_doctor");
         if(isDoctor=="true")
         {
@@ -132,7 +148,10 @@ public class MainActivity extends AppCompatActivity {
     public void onClickStatus(View view)
     {
         if(view.getId()==R.id.StatusButton) {
-            statusSet();
+
+            retrive();
+
+
 
         }
 
@@ -146,97 +165,70 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void statusSet() {
-        // Tag used to cancel the request
-        String tag_string_req = "req_login";
+public void retrive()
+{
 
-        pDialog.setMessage("Generating report ...");
-        showDialog();
+    // Tag used to cancel the request
+    String tag_string_req = "req_login";
 
-        StringRequest strReq = new StringRequest(Request.Method.POST,
-                AppConfig.URL_COUNT, new Response.Listener<String>() {
+//    pDialog.setMessage("Logging in ...");
+    //showDialog();
 
-            @Override
-            public void onResponse(String response) {
-                Log.d(TAG, "Login Response: " + response.toString());
-                hideDialog();
+    final StringRequest strReq = new StringRequest(Request.Method.POST,
+            AppConfig.URL_COUNT, new Response.Listener<String>()
 
-                try {
-                    JSONObject jObj = new JSONObject(response);
-                    boolean error = jObj.getBoolean("error");
+    {
 
-                    // Check for error node in json
-                    if (!error) {
-                        // user successfully logged in
-                        // Create login session
-
-
-                        // Now store the user in SQLite
-                        String uid = jObj.getString("uid");
-
-                        JSONObject user = jObj.getJSONObject("user");
-                        String DiseaseName = user.getString("DiseaseName");
-                        String DiseaseCount = user.getString("DiseaseCount");
-                        float DisCount= Float.parseFloat(DiseaseCount);
-                        String created_at = user
-                                .getString("created_at");
-
-                        // Inserting row in users table
-
-
-                        // Launch main activity
-                        float diseseaseData[]={DisCount};
-                        String disName[]={DiseaseName};
-                        Intent c = new Intent(MainActivity.this, StatusActivity.class);
-                        c.putExtra("diseseaseData",diseseaseData);
-                        c.putExtra("disName",disName);
-                        startActivity(c);
-                        finish();
-                    } else {
-                        // Error in login. Get the error message
-                        String errorMsg = jObj.getString("error_msg");
-                        Toast.makeText(getApplicationContext(),
-                                errorMsg, Toast.LENGTH_LONG).show();
-                    }
-                } catch (JSONException e) {
-                    // JSON error
-                    e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                }
+        @Override
+        public void onResponse(String response) {
+            Log.d(TAG, "Login Response: " + response.toString());
+            //hideDialog();
+            for(int i=1;i<(response.toString().split(",")).length;i+=2) {
+                String co= response.toString().split(",")[i-1];
+                String ct= response.toString().split(",")[i];
+                String name= co.split(":")[1];
+                String count= ct.split(":")[1];
+                String finalCount=count.substring(1,2);
+                diseseaseData[i]=Float.parseFloat(finalCount);
+                disName[i]=name;
 
             }
-        }, new Response.ErrorListener() {
 
-            @Override
-            public void onErrorResponse(VolleyError error) {
 
-                hideDialog();
-            }
-        }) {
 
-            @Override
-            protected Map<String, String> getParams() {
-                // Posting parameters to login url
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("email", email);
-                params.put("password", password);
 
-                return params;
-            }
+            // Launch main activity
+                    Intent c = new Intent(MainActivity.this, StatusActivity.class);
+                    c.putExtra("diseseaseData",diseseaseData);
+                    c.putExtra("disName",disName);
+                    startActivity(c);
 
-        };
+//                } else {
+//                    // Error in login. Get the error message
+//                    String errorMsg = jObj.getString("error_msg");
+//                    Toast.makeText(getApplicationContext(),
+//                            errorMsg, Toast.LENGTH_LONG).show();
+//                }
 
-        // Adding request to request queue
-        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
-    }
+        }
+    }, new Response.ErrorListener() {
 
-    private void showDialog() {
-        if (!pDialog.isShowing())
-            pDialog.show();
-    }
+        @Override
+        public void onErrorResponse(VolleyError error) {
+            Log.e(TAG, "Login Error: " + error.getMessage());
+            Toast.makeText(getApplicationContext(),
+                    error.getMessage(), Toast.LENGTH_LONG).show();
+            //hideDialog();
+        }
+    }) {
 
-    private void hideDialog() {
-        if (pDialog.isShowing())
-            pDialog.dismiss();
-    }
+
+    };
+
+    // Adding request to request queue
+    AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+
+}
+
+
 }
