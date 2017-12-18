@@ -90,7 +90,7 @@ public class ReportActivity extends AppCompatActivity {
     }
 
     private void reportDisease(final String patient, final String nic,
-                              final String disease, final String district, final String detail,
+                              final String diseaseName, final String district, final String detail,
                               final String date) {
         // Tag used to cancel the request
         String tag_string_req = "req_report";
@@ -98,7 +98,7 @@ public class ReportActivity extends AppCompatActivity {
         pDialog.setMessage("Reporting ...");
         showDialog();
 
-        StringRequest strReq = new StringRequest(Request.Method.POST,
+        StringRequest strReq = new StringRequest(Request.Method.GET,
                 AppConfig.URL_REPORT, new Response.Listener<String>() {
 
             @Override
@@ -110,18 +110,18 @@ public class ReportActivity extends AppCompatActivity {
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
                     if (!error) {
-                        // User successfully stored in MySQL
-                        // Now store the user in sqlite
-                        String uid = jObj.getString("uid");
+//                        // User successfully stored in MySQL
+//                        // Now store the user in sqlite
+//                           String rid = jObj.getString("rid");
+//
+ //                      JSONObject report = jObj.getJSONObject("report");
+   //                    String name = report.getString("name");
+     //                   String email = report.getString("email");
+       //                 String created_at = report
+         //                       .getString("created_at");
 
-                        JSONObject user = jObj.getJSONObject("user");
-                        String name = user.getString("name");
-                        String email = user.getString("email");
-                        String created_at = user
-                                .getString("created_at");
-
-                        // Inserting row in users table
-                        db.addReport(patient, nic, disease, district, date, detail, "false");
+                        // Inserting row in report table
+                        db.addReport(patient, nic, diseaseName, district, date, detail, "false");
 
                         Toast.makeText(getApplicationContext(), "Report successfully submitted!", Toast.LENGTH_LONG).show();
 
@@ -159,11 +159,11 @@ public class ReportActivity extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 // Posting params to register url
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("pname", patient);
-                params.put("pnic", nic);
-                params.put("dname", disease);
-                params.put("date", date);
-                params.put("detail", detail);
+                params.put("patientName", patient);
+                params.put("patientNic", nic);
+                params.put("diseaseName", diseaseName);
+                params.put("reportedDate", date);
+                params.put("isConfirmed", detail);
                 params.put("district", district);
 
                 return params;
