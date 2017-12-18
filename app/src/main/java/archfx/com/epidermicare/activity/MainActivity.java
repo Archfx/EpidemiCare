@@ -213,15 +213,15 @@ public class MainActivity extends AppCompatActivity {
             }
         }) {
 
-            @Override
-            protected Map<String, String> getParams() {
-                // Posting parameters to login url
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("email", email);
-                params.put("password", password);
-
-                return params;
-            }
+            //@Override
+//            protected Map<String, String> getParams() {
+//                // Posting parameters to login url
+//                Map<String, String> params = new HashMap<String, String>();
+//                params.put("email", email);
+//                params.put("password", password);
+//
+//                return params;
+//            }
 
         };
 
